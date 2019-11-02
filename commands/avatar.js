@@ -5,9 +5,10 @@ module.exports = {
     aliases: ["bot"],
     cooldown: 0,
     execute(msg, arguments, bot){
+        const user = msg.mentions.users.first() || bot.user;
         const reply = new Discord.RichEmbed()
-                    .setAuthor(bot.user.username, bot.user.displayAvatarURL)
-                    .setImage(bot.user.displayAvatarURL);
+                    .setAuthor(user.username, user.displayAvatarURL)
+                    .setImage(user.displayAvatarURL);
         msg.channel.send(reply);
     }
 }
